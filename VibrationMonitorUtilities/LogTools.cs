@@ -70,8 +70,6 @@ public static class LogTools
 
         try
         {
-            Log.Information(
-                $"Git Commit {ThisAssembly.Git.Commit} - Commit Date {ThisAssembly.Git.CommitDate} - Is Dirty {ThisAssembly.Git.IsDirty}");
             Log.Information($"{GetEntryAssemblyBuildDate()}");
         }
         catch (Exception e)
