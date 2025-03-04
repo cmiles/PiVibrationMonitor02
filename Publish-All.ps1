@@ -1,6 +1,8 @@
 $publishPath = "M:\PointlessWaymarksPublications\VibrationMonitorProject"
 if(!(test-path -PathType container $publishPath)) { New-Item -ItemType Directory -Path $publishPath }
 
+dotnet script .\Tools-ReadmeBuilder.csx
+
 Remove-Item -Path $publishPath\* -Recurse
 
 dotnet publish .\VibrationMonitor\VibrationMonitor.csproj /p:PublishProfile=.\VibrationMonitor\Properties\PublishProfiles\FolderProfile.pubxml

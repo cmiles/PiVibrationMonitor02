@@ -10,11 +10,11 @@ Thanks to [Chisel](https://chiselapp.com/) for the generous hosting of Fossil re
 
 ## C# Vibration Monitor for the Raspberry Pi and SW-420 Vibration Sensor
 
-This C# project runs on a Raspberry Pi, records vibration periods from the SW-420 and has a web api to retrieve the data.
+This C# project runs on a Raspberry Pi, records vibration periods from an SW-420, and has a web API for retrieving the data.
 
-The SW-420 Vibration Sensor is an inexpensive package (search SW-420 on Amazon - as of late 2024 prices are under $10 for a pack of 5) that can be powered from a Raspberry Pi (this has been tested on the Pi Zero 2 W, 3 A+ and 3 B+) and outputs its state on a GPIO pin. The sensor has a potentiometer to adjust the sensitivity of the sensor.
+The SW-420 Vibration Sensor is an inexpensive package (search SW-420 on Amazon - as of late 2024 prices are under $10 for a pack of 5) that can be powered from a Raspberry Pi (this has been tested on the Pi Zero 2 W, 3 A+ and 3 B+) and outputs its state on a GPIO pin. The sensor has a potentiometer to adjust its sensitivity.
 
-This program uses several settings to record 'Vibration Periods' to a SQLite database and serve that data via a web api:
+This program uses several settings to record 'Vibration Periods' to a SQLite database and serve that data via a web API:
  - Description: A short description to associate with the Vibration entries in the database.
  - GpioPin: The gpio pin the SW420 Sensor is connected to.
  - MinimumPeriod: The minimum duration in milliseconds to record as a Vibration Period.
@@ -38,7 +38,7 @@ There is a PublishAll.ps1 script in the root directory that will publish both th
 
 Setting up and securing a Raspberry Pi is beyond the scope of this readme - suggested below are some basic steps to get the program up and running on a Raspberry Pi.
 
- - I've tested this code on a Raspberry Pi Zero 2 WH, 3 A+ and 3 B+ with the Raspberry Pi OS Lite (64-bit) OS. The publish profiles are setup to publish self contained, single file, executables for linux-arm64. These settings will not produce impressively small files, but they will run without needing any additional packages installed on the Pi.
+ - I've tested this code on a Raspberry Pi Zero 2 WH, 3 A+ and 3 B+ with the Raspberry Pi OS Lite (64-bit) OS. The publish profiles are setup to publish self-contained, single file, executables for linux-arm64. These settings will not produce impressively small files, but they will run without needing any additional packages installed on the Pi.
 
  - Run updates
 	```
@@ -52,7 +52,7 @@ Setting up and securing a Raspberry Pi is beyond the scope of this readme - sugg
 	sudo dpkg-reconfigure --priority=low unattended-upgrades
 	```
  
- - Copy the M:\VibrationMonitorProject directory (or the directory where you published the project to) to your home directory on the Pi
+ - Copy the M:\VibrationMonitorProject directory (or the directory where you published the project) to your home directory on the Pi
 
  - Run the Vibration Monitor and web API as a service: 
 	- Edit the vibrationmonitor.service replacing [Your Directory Here] and optionally adding program arguments, copy it to /etc/systemd/system/, start and follow the service to check for any errors:
@@ -97,7 +97,7 @@ API Endpoints:
 
 ### Background
 
-Our house has a an alternative septic system - I had never even heard of an 'alternative' septic system until a few years ago!The system we have includes control panel with a timer for a pump in the holding tank. Overall this is a durable and elegant system - but it doesn't log information, and if you have a problem or a question (and aren't an expert on the system) this can be frustrating. I wrote this system to monitor the pump in our holding tank. There are two important reasons I used a vibration sensor: attaching the vibration sensor to the output pipe from the tank means the monitor is more likely to measure 'water flowing out of the tank' which is ultimately what matters (vs for example monitoring current to the motor, which would probably be cleaner, but really I only care about water leaving the tank...) and it allows monitoring without any changes to, or extra equipment in, the control panel - a critical detail for a system under warranty!
+Our house has an alternative septic system - I had never even heard of an 'alternative' septic system until a few years ago! The system we have includes a control panel with a timer for a pump in the holding tank. Overall this is a durable and elegant system - but it doesn't log information, and if you have a problem or a question (and aren't an expert on the system) this can be frustrating. I wrote this system to monitor the pump in our holding tank. There are two important reasons I used a vibration sensor: attaching the vibration sensor to the output pipe from the tank means the monitor is more likely to measure 'water flowing out of the tank' which is ultimately what matters (vs for example monitoring current to the motor, which would probably be cleaner, but really I only care about water leaving the tank...) and it allows monitoring without any changes to, or extra equipment in, the control panel - a critical detail for a system under warranty!
 
 ### Packages Used
 
@@ -106,7 +106,6 @@ Even this fairly simple program owes an incredible debt to the amazing open sour
  - [dotnet/efcore: EF Core is a modern object-database mapper for .NET. It supports LINQ queries, change tracking, updates, and schema migrations.](https://github.com/dotnet/efcore)
  - [SQLite](https://www.sqlite.org/index.html) - An absolutely brilliant project - having a Public Domain option for such a high quality data store that can be used locally and cross platform is amazing! Public Domain.
  - [commandlineparser/commandline: The best C# command line parser that brings standardized \*nix getopt style, for .NET. Includes F# support](https://github.com/commandlineparser/commandline)
- - [devlooped/GitInfo: Git and SemVer Info from MSBuild, C# and VB](https://github.com/devlooped/GitInfo)
  - [thomasgalliker/ObjectDumper: ObjectDumper is a utility which aims to serialize C# objects to string for debugging and logging purposes.](https://github.com/thomasgalliker/ObjectDumper)
  - [NUnit.org](https://nunit.org/) - NUnit is a unit-testing framework for all .Net languages. Initially ported from JUnit, the current production release, version 3, has been completely rewritten with many new features and support for a wide range of .NET platforms.
  - [serilog/serilog: Simple .NET logging with fully-structured events](https://github.com/serilog/serilog). Easy full featured logging. Apache-2.0 License.
@@ -122,9 +121,10 @@ Even this fairly simple program owes an incredible debt to the amazing open sour
  - [ReSharper: The Visual Studio Extension for .NET Developers by JetBrains](https://www.jetbrains.com/resharper/)
  - [GitHub Copilot · Your AI pair programmer · GitHub](https://github.com/features/copilot)
  - [PowerShell](https://github.com/PowerShell/PowerShell)
+ - [dotnet-script/dotnet-script: Run C# scripts from the .NET CLI.](https://github.com/dotnet-script/dotnet-script)
  - [AutoHotkey](https://www.autohotkey.com/)
  - [Compact-Log-Format-Viewer: A cross platform tool to read & query JSON aka CLEF log files created by Serilog](https://github.com/warrenbuckley/Compact-Log-Format-Viewer)
  - [DB Browser for SQLite](https://sqlitebrowser.org/)
- - [Fork - a fast and friendly git client for Mac and Windows](https://git-fork.com/)
  - [grepWin: A powerful and fast search tool using regular expressions](https://github.com/stefankueng/grepWin)
  - [Notepad++](https://notepad-plus-plus.org/)
+ - [Fossil: A Coherent Software Configuration Management System](https://fossil-scm.org/home/)
