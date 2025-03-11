@@ -5,7 +5,7 @@ Console.WriteLine(
 
 var mainReadme = new FileInfo(Path.Combine(searchDirectory.FullName, "README-Fossil.md"));
 
-if (mainReadme.Exists && File.Exists(Path.Combine(searchDirectory.FullName, "VibrationMonitor.sln")))
+if (mainReadme.Exists && File.Exists(Path.Combine(searchDirectory.FullName, "VibrationMonitor.slnx")))
 {
     var gitMirrorInformation =
 $"""
@@ -80,7 +80,7 @@ foreach (var subDirectory in subDirectories)
 
         if (string.IsNullOrWhiteSpace(readmeName))
         {
-            var possibleSolutionFile = subDirectory.EnumerateFiles("*.sln", SearchOption.TopDirectoryOnly).ToList();
+            var possibleSolutionFile = subDirectory.EnumerateFiles("*.slnx", SearchOption.TopDirectoryOnly).ToList();
 
             readmeName = possibleSolutionFile.Any()
                 ? possibleSolutionFile.First().Name.Split(".")[0]

@@ -34,7 +34,7 @@ Vibration Periods (and program errors) are written to the database and can be re
 
 ### Pi Setup
 
-There is a PublishAll.ps1 script in the root directory that will publish both the VibrationMonitor and VibrationMonitorApi projects for the Raspberry Pi to M:\VibrationMonitorProject using the FolderProfile.pubxml files in the VibrationMonitor\Properties\PublishProfiles and VibrationMonitorApi\Properties\PublishProfiles. You can either map a directory to M: or edit the script and the FolderProfile.pubxml files to point to another directory.
+There is a PublishAll.ps1 script in the root directory that will publish both the VibrationMonitor and VibrationMonitorApi projects for the Raspberry Pi to M:\PointlessWaymarksPublications\VibrationMonitorProject using the FolderProfile.pubxml files in the VibrationMonitor\Properties\PublishProfiles and VibrationMonitorApi\Properties\PublishProfiles. You can either map a directory to M: or edit the script and the FolderProfile.pubxml files to point to another directory.
 
 Setting up and securing a Raspberry Pi is beyond the scope of this readme - suggested below are some basic steps to get the program up and running on a Raspberry Pi.
 
@@ -52,7 +52,7 @@ Setting up and securing a Raspberry Pi is beyond the scope of this readme - sugg
 	sudo dpkg-reconfigure --priority=low unattended-upgrades
 	```
  
- - Copy the M:\VibrationMonitorProject directory (or the directory where you published the project) to your home directory on the Pi
+ - Copy the VibrationMonitorProject directory from the .zip file (or the contents of M:\PointlessWaymarksPublications\VibrationMonitorProject is you used the PublishAll.ps1 script) to your home directory on the Pi
 
  - Run the Vibration Monitor and web API as a service: 
 	- Edit the vibrationmonitor.service replacing [Your Directory Here] and optionally adding program arguments, copy it to /etc/systemd/system/, start and follow the service to check for any errors:

@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="VibrationMonitor/VibrationMonitor.csproj" />
+  <Project Path="VibrationMonitorApi/VibrationMonitorApi.csproj" />
+  <Project Path="VibrationMonitorDb/VibrationMonitorDb.csproj" />
+  <Project Path="VibrationMonitorErrorDb/VibrationMonitorErrorDb.csproj" />
+  <Project Path="VibrationMonitorTests/VibrationMonitorTests.csproj" />
+  <Project Path="VibrationMonitorUtilities/VibrationMonitorUtilities.csproj" />
+</Solution>
